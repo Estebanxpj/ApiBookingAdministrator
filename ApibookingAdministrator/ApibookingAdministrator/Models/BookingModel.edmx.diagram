@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8da75e2453dc47e7bd83144816b8decb" Name="Diagram1">
+        <EntityTypeShape EntityType="HOSTING_MANAGERModel.API_LOGIN_LOG" Width="1.5" PointX="5.25" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="HOSTING_MANAGERModel.BOOKING" Width="1.5" PointX="10.5" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HOSTING_MANAGERModel.DOCUMENT_TYPE" Width="1.5" PointX="6" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="HOSTING_MANAGERModel.HOTEL" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HOSTING_MANAGERModel.HOTEL_TRAVEL_AGENT" Width="1.5" PointX="5.25" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="HOSTING_MANAGERModel.LOCATION" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="HOSTING_MANAGERModel.RIDER" Width="1.5" PointX="8.25" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="HOSTING_MANAGERModel.ROOM" Width="1.5" PointX="8.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HOSTING_MANAGERModel.ROOM_STATE" Width="1.5" PointX="6" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="HOSTING_MANAGERModel.ROOM_TAX" Width="1.5" PointX="13.5" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="HOSTING_MANAGERModel.ROOM_TYPE" Width="1.5" PointX="6" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HOSTING_MANAGERModel.STATE_BOOKING" Width="1.5" PointX="8.25" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HOSTING_MANAGERModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HOSTING_MANAGERModel.TAX" Width="1.5" PointX="11.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HOSTING_MANAGERModel.TRAVEL_AGENT" Width="1.5" PointX="3" PointY="1.625" IsExpanded="true" />
+        <AssociationConnector Association="HOSTING_MANAGERModel.FK_API_LOGIN_LOG_TRAVEL_AGENT" ManuallyRouted="false" />
+        <AssociationConnector Association="HOSTING_MANAGERModel.FK_BOOKING_RIDER" ManuallyRouted="false" />
+        <AssociationConnector Association="HOSTING_MANAGERModel.FK_BOOKING_ROOM" ManuallyRouted="false" />
+        <AssociationConnector Association="HOSTING_MANAGERModel.FK_BOOKING_STATE_BOOKING" ManuallyRouted="false" />
+        <AssociationConnector Association="HOSTING_MANAGERModel.FK_RIDER_RIDER" ManuallyRouted="false" />
+        <AssociationConnector Association="HOSTING_MANAGERModel.FK_HOTEL_LOCATION" ManuallyRouted="false" />
+        <AssociationConnector Association="HOSTING_MANAGERModel.FK_HOTEL_TRAVEL_AGENT_HOTEL" ManuallyRouted="false" />
+        <AssociationConnector Association="HOSTING_MANAGERModel.FK_ROOM_HOTEL" ManuallyRouted="false" />
+        <AssociationConnector Association="HOSTING_MANAGERModel.FK_HOTEL_TRAVEL_AGENT_HOTEL_TRAVEL_AGENT" ManuallyRouted="false" />
+        <AssociationConnector Association="HOSTING_MANAGERModel.FK_ROOM_ROOM_STATE" ManuallyRouted="false" />
+        <AssociationConnector Association="HOSTING_MANAGERModel.FK_ROOM_ROOM_TYPE" ManuallyRouted="false" />
+        <AssociationConnector Association="HOSTING_MANAGERModel.FK_ROOM_TAXE_ROOM" ManuallyRouted="false" />
+        <AssociationConnector Association="HOSTING_MANAGERModel.FK_ROOM_TAXE_TAXE" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

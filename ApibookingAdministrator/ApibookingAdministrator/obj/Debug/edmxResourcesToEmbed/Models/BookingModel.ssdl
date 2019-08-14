@@ -1,0 +1,521 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HOSTING_MANAGERModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="API_LOGIN_LOG">
+    <Key>
+      <PropertyRef Name="API_LOGIN_LOG_ID" />
+    </Key>
+    <Property Name="API_LOGIN_LOG_ID" Type="int" Nullable="false" />
+    <Property Name="TRAVEL_AGENT_ID" Type="int" />
+    <Property Name="TOKEN" Type="nvarchar(max)" />
+    <Property Name="DATE_BEGIN" Type="datetime" />
+    <Property Name="DATE_END" Type="datetime" />
+    <Property Name="STATE" Type="bit" />
+  </EntityType>
+  <EntityType Name="BOOKING">
+    <Key>
+      <PropertyRef Name="BOOKING_ID" />
+    </Key>
+    <Property Name="BOOKING_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ROOM_ID" Type="int" />
+    <Property Name="RIDER_ID" Type="int" />
+    <Property Name="CODE" Type="nvarchar(max)" />
+    <Property Name="CHEK_IN" Type="datetime" />
+    <Property Name="CHEK_OUNT" Type="datetime" />
+    <Property Name="NUMBER_PEOPLE" Type="int" />
+    <Property Name="DESCRIPTION" Type="nvarchar(max)" />
+    <Property Name="STATE_BOOKING_ID" Type="int" />
+    <Property Name="CREATE_DATE" Type="datetime" />
+    <Property Name="UPDATE_DATE" Type="datetime" />
+    <Property Name="STATE" Type="int" />
+  </EntityType>
+  <EntityType Name="DOCUMENT_TYPE">
+    <Key>
+      <PropertyRef Name="DOCUMENT_TYPE_ID" />
+    </Key>
+    <Property Name="DOCUMENT_TYPE_ID" Type="int" Nullable="false" />
+    <Property Name="DESCRIPTION" Type="nvarchar(max)" />
+    <Property Name="STATE" Type="bit" />
+  </EntityType>
+  <EntityType Name="HOTEL">
+    <Key>
+      <PropertyRef Name="HOTEL_ID" />
+    </Key>
+    <Property Name="HOTEL_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LOCATION_ID" Type="int" Nullable="false" />
+    <Property Name="REFERENCE" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CAPACITY" Type="int" Nullable="false" />
+    <Property Name="DESCRIPTION" Type="nvarchar(max)" />
+    <Property Name="CREATE_DATE" Type="datetime" Nullable="false" />
+    <Property Name="UPDATE_DATE" Type="datetime" Nullable="false" />
+    <Property Name="STATE" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HOTEL_TRAVEL_AGENT">
+    <Key>
+      <PropertyRef Name="HOTEL_TRAVEL_AGENT_ID" />
+    </Key>
+    <Property Name="HOTEL_TRAVEL_AGENT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HOTEL_ID" Type="int" />
+    <Property Name="TRAVEL_AGENT_ID" Type="int" />
+    <Property Name="STATE" Type="bit" />
+  </EntityType>
+  <EntityType Name="LOCATION">
+    <Key>
+      <PropertyRef Name="LOCATION_ID" />
+    </Key>
+    <Property Name="LOCATION_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CITY" Type="nvarchar(max)" />
+    <Property Name="LATITUDE" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="LONGITUDE" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="STATE" Type="bit" />
+  </EntityType>
+  <EntityType Name="RIDER">
+    <Key>
+      <PropertyRef Name="RIDER_ID" />
+    </Key>
+    <Property Name="RIDER_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DOCUMENT_TYPE_ID" Type="int" />
+    <Property Name="NUMBER_DOCUMENT" Type="nvarchar(max)" />
+    <Property Name="NAME" Type="nvarchar(max)" />
+    <Property Name="BIRTHDAY_DATE" Type="datetime" />
+    <Property Name="GENDER" Type="nvarchar(max)" />
+    <Property Name="EMAIL" Type="nvarchar(max)" />
+    <Property Name="PHONE" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="EMERGENCY_NAME" Type="nvarchar(max)" />
+    <Property Name="EMERGENCY_PHONE" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="CRETE_DATE" Type="datetime" />
+    <Property Name="STATE" Type="bit" />
+  </EntityType>
+  <EntityType Name="ROOM">
+    <Key>
+      <PropertyRef Name="ROOM_ID" />
+    </Key>
+    <Property Name="ROOM_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HOTEL_ID" Type="int" />
+    <Property Name="NUMBER" Type="int" />
+    <Property Name="FLOOR" Type="int" />
+    <Property Name="CAPACITY" Type="int" />
+    <Property Name="ROOM_TYPE_ID" Type="int" />
+    <Property Name="PRICE" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="DESCRIPTION" Type="nvarchar(max)" />
+    <Property Name="CREATE_DATE" Type="datetime" />
+    <Property Name="UPDATE_DATE" Type="datetime" />
+    <Property Name="ROOM_STATE_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="ROOM_STATE">
+    <Key>
+      <PropertyRef Name="ROOM_STATE_ID" />
+    </Key>
+    <Property Name="ROOM_STATE_ID" Type="int" Nullable="false" />
+    <Property Name="DESCRIPTION" Type="nvarchar(max)" />
+    <Property Name="STATE" Type="bit" />
+  </EntityType>
+  <EntityType Name="ROOM_TAX">
+    <Key>
+      <PropertyRef Name="ROOM_TAX_ID" />
+    </Key>
+    <Property Name="ROOM_TAX_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ROOM_ID" Type="int" Nullable="false" />
+    <Property Name="TAX_ID" Type="int" Nullable="false" />
+    <Property Name="STATE" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ROOM_TYPE">
+    <Key>
+      <PropertyRef Name="ROOM_TYPE_ID" />
+    </Key>
+    <Property Name="ROOM_TYPE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DESCRIPTION" Type="nvarchar(max)" />
+    <Property Name="STATE" Type="bit" />
+  </EntityType>
+  <EntityType Name="STATE_BOOKING">
+    <Key>
+      <PropertyRef Name="STATE_BOOKING_ID" />
+    </Key>
+    <Property Name="STATE_BOOKING_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DESCRIPTION" Type="nchar" MaxLength="10" />
+    <Property Name="STATE" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TAX">
+    <Key>
+      <PropertyRef Name="TAX_ID" />
+    </Key>
+    <Property Name="TAX_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DESCRIPTION" Type="nvarchar(max)" />
+    <Property Name="PERCENTAGE" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="VALUE" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="CREATE_DATE" Type="datetime" />
+    <Property Name="UPDATE_DATE" Type="datetime" />
+    <Property Name="STATE" Type="bit" />
+  </EntityType>
+  <EntityType Name="TRAVEL_AGENT">
+    <Key>
+      <PropertyRef Name="TRAVEL_AGENT_ID" />
+    </Key>
+    <Property Name="TRAVEL_AGENT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDENTIFICATION" Type="nvarchar(max)" />
+    <Property Name="NAME" Type="nvarchar(max)" />
+    <Property Name="PHONE" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="EMAIL" Type="nvarchar" MaxLength="50" />
+    <Property Name="PASSWORD" Type="nvarchar" MaxLength="50" />
+    <Property Name="CREATE_DATE" Type="datetime" />
+    <Property Name="STATE" Type="bit" />
+  </EntityType>
+  <Association Name="FK_API_LOGIN_LOG_TRAVEL_AGENT">
+    <End Role="TRAVEL_AGENT" Type="Self.TRAVEL_AGENT" Multiplicity="0..1" />
+    <End Role="API_LOGIN_LOG" Type="Self.API_LOGIN_LOG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TRAVEL_AGENT">
+        <PropertyRef Name="TRAVEL_AGENT_ID" />
+      </Principal>
+      <Dependent Role="API_LOGIN_LOG">
+        <PropertyRef Name="TRAVEL_AGENT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BOOKING_RIDER">
+    <End Role="RIDER" Type="Self.RIDER" Multiplicity="0..1" />
+    <End Role="BOOKING" Type="Self.BOOKING" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RIDER">
+        <PropertyRef Name="RIDER_ID" />
+      </Principal>
+      <Dependent Role="BOOKING">
+        <PropertyRef Name="RIDER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BOOKING_ROOM">
+    <End Role="ROOM" Type="Self.ROOM" Multiplicity="0..1" />
+    <End Role="BOOKING" Type="Self.BOOKING" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ROOM">
+        <PropertyRef Name="ROOM_ID" />
+      </Principal>
+      <Dependent Role="BOOKING">
+        <PropertyRef Name="ROOM_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BOOKING_STATE_BOOKING">
+    <End Role="STATE_BOOKING" Type="Self.STATE_BOOKING" Multiplicity="0..1" />
+    <End Role="BOOKING" Type="Self.BOOKING" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="STATE_BOOKING">
+        <PropertyRef Name="STATE_BOOKING_ID" />
+      </Principal>
+      <Dependent Role="BOOKING">
+        <PropertyRef Name="STATE_BOOKING_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HOTEL_LOCATION">
+    <End Role="LOCATION" Type="Self.LOCATION" Multiplicity="1" />
+    <End Role="HOTEL" Type="Self.HOTEL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOCATION">
+        <PropertyRef Name="LOCATION_ID" />
+      </Principal>
+      <Dependent Role="HOTEL">
+        <PropertyRef Name="LOCATION_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HOTEL_TRAVEL_AGENT_HOTEL">
+    <End Role="HOTEL" Type="Self.HOTEL" Multiplicity="0..1" />
+    <End Role="HOTEL_TRAVEL_AGENT" Type="Self.HOTEL_TRAVEL_AGENT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HOTEL">
+        <PropertyRef Name="HOTEL_ID" />
+      </Principal>
+      <Dependent Role="HOTEL_TRAVEL_AGENT">
+        <PropertyRef Name="HOTEL_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HOTEL_TRAVEL_AGENT_HOTEL_TRAVEL_AGENT">
+    <End Role="TRAVEL_AGENT" Type="Self.TRAVEL_AGENT" Multiplicity="0..1" />
+    <End Role="HOTEL_TRAVEL_AGENT" Type="Self.HOTEL_TRAVEL_AGENT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TRAVEL_AGENT">
+        <PropertyRef Name="TRAVEL_AGENT_ID" />
+      </Principal>
+      <Dependent Role="HOTEL_TRAVEL_AGENT">
+        <PropertyRef Name="TRAVEL_AGENT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RIDER_RIDER">
+    <End Role="DOCUMENT_TYPE" Type="Self.DOCUMENT_TYPE" Multiplicity="0..1" />
+    <End Role="RIDER" Type="Self.RIDER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DOCUMENT_TYPE">
+        <PropertyRef Name="DOCUMENT_TYPE_ID" />
+      </Principal>
+      <Dependent Role="RIDER">
+        <PropertyRef Name="DOCUMENT_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ROOM_HOTEL">
+    <End Role="HOTEL" Type="Self.HOTEL" Multiplicity="0..1" />
+    <End Role="ROOM" Type="Self.ROOM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HOTEL">
+        <PropertyRef Name="HOTEL_ID" />
+      </Principal>
+      <Dependent Role="ROOM">
+        <PropertyRef Name="HOTEL_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ROOM_ROOM_STATE">
+    <End Role="ROOM_STATE" Type="Self.ROOM_STATE" Multiplicity="0..1" />
+    <End Role="ROOM" Type="Self.ROOM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ROOM_STATE">
+        <PropertyRef Name="ROOM_STATE_ID" />
+      </Principal>
+      <Dependent Role="ROOM">
+        <PropertyRef Name="ROOM_STATE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ROOM_ROOM_TYPE">
+    <End Role="ROOM_TYPE" Type="Self.ROOM_TYPE" Multiplicity="0..1" />
+    <End Role="ROOM" Type="Self.ROOM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ROOM_TYPE">
+        <PropertyRef Name="ROOM_TYPE_ID" />
+      </Principal>
+      <Dependent Role="ROOM">
+        <PropertyRef Name="ROOM_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ROOM_TAXE_ROOM">
+    <End Role="ROOM" Type="Self.ROOM" Multiplicity="1" />
+    <End Role="ROOM_TAX" Type="Self.ROOM_TAX" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ROOM">
+        <PropertyRef Name="ROOM_ID" />
+      </Principal>
+      <Dependent Role="ROOM_TAX">
+        <PropertyRef Name="ROOM_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ROOM_TAXE_TAXE">
+    <End Role="TAX" Type="Self.TAX" Multiplicity="1" />
+    <End Role="ROOM_TAX" Type="Self.ROOM_TAX" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TAX">
+        <PropertyRef Name="TAX_ID" />
+      </Principal>
+      <Dependent Role="ROOM_TAX">
+        <PropertyRef Name="TAX_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="SP_CREATE_BOOKING" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ROOM_ID" Type="int" Mode="In" />
+    <Parameter Name="RIDER_ID" Type="int" Mode="In" />
+    <Parameter Name="CODE" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="CHEK_IN" Type="datetime" Mode="In" />
+    <Parameter Name="CHEK_OUNT" Type="datetime" Mode="In" />
+    <Parameter Name="NUMBER_PEOPLE" Type="int" Mode="In" />
+    <Parameter Name="DESCRIPTION" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="STATE_BOOKING_ID" Type="int" Mode="In" />
+    <Parameter Name="BOOKING_ID" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="SP_CREATE_HOTEL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LOCATION_ID" Type="int" Mode="In" />
+    <Parameter Name="REFERENCE" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="NAME" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="CAPACITY" Type="int" Mode="In" />
+    <Parameter Name="DESCRIPTION" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="TRAVEL_AGENT_ID" Type="int" Mode="In" />
+    <Parameter Name="HOTEL_ID" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="SP_CREATE_LOGIN_API" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TRAVEL_AGENT_ID" Type="int" Mode="In" />
+    <Parameter Name="DATE_END" Type="datetime" Mode="In" />
+    <Parameter Name="TOKEN" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="LOGINID" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="SP_CREATE_RIDER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DOCUMENT_TYPE_ID" Type="int" Mode="In" />
+    <Parameter Name="NUMBER_DOCUMENT" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="NAME" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="BIRTHDAY_DATE" Type="datetime" Mode="In" />
+    <Parameter Name="GENDER" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="EMAIL" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="PHONE" Type="numeric" Mode="In" />
+    <Parameter Name="EMERGENCY_NAME" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="EMERGENCY_PHONE" Type="numeric" Mode="In" />
+    <Parameter Name="RIDER_ID" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="SP_CREATE_ROOM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="HOTEL_ID" Type="int" Mode="In" />
+    <Parameter Name="NUMBER" Type="int" Mode="In" />
+    <Parameter Name="FLOOR" Type="int" Mode="In" />
+    <Parameter Name="ROOM_TYPE_ID" Type="int" Mode="In" />
+    <Parameter Name="DESCRIPTION" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="PRICE" Type="decimal" Mode="In" />
+    <Parameter Name="ROOM_ID" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="SP_CREATE_TAX" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ROOM_ID" Type="int" Mode="In" />
+    <Parameter Name="NAME" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="DESCRIPTION" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="PERCENTAGE" Type="numeric" Mode="In" />
+    <Parameter Name="VALUE" Type="decimal" Mode="In" />
+    <Parameter Name="TAX_ID" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_GET_BOOKINGS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TRAVEL_AGENT_ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_GET_HOTELES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SP_UPDATE_HOTEL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="HOTEL_ID" Type="int" Mode="In" />
+    <Parameter Name="LOCATION_ID" Type="int" Mode="In" />
+    <Parameter Name="REFERENCE" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="NAME" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="CAPACITY" Type="int" Mode="In" />
+    <Parameter Name="DESCRIPTION" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="STATE" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="SP_UPDATE_ROOM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ROOM_ID" Type="int" Mode="In" />
+    <Parameter Name="NUMBER" Type="int" Mode="In" />
+    <Parameter Name="FLOOR" Type="int" Mode="In" />
+    <Parameter Name="ROOM_TYPE_ID" Type="int" Mode="In" />
+    <Parameter Name="PRICE" Type="decimal" Mode="In" />
+    <Parameter Name="DESCRIPTION" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="ROOM_STATE_ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_UPDATE_TAX" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TAX_ID" Type="int" Mode="In" />
+    <Parameter Name="NAME" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="DESCRIPTION" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="PERCENTAGE" Type="numeric" Mode="In" />
+    <Parameter Name="VALUE" Type="decimal" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_VALIDATE_LOGIN_API" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TRAVEL_AGENT_ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_VALIDATE_TRAVEL_AGENT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EMAIL" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="PASSWORD" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <EntityContainer Name="HOSTING_MANAGERModelStoreContainer">
+    <EntitySet Name="API_LOGIN_LOG" EntityType="Self.API_LOGIN_LOG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BOOKING" EntityType="Self.BOOKING" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DOCUMENT_TYPE" EntityType="Self.DOCUMENT_TYPE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HOTEL" EntityType="Self.HOTEL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HOTEL_TRAVEL_AGENT" EntityType="Self.HOTEL_TRAVEL_AGENT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LOCATION" EntityType="Self.LOCATION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RIDER" EntityType="Self.RIDER" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ROOM" EntityType="Self.ROOM" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ROOM_STATE" EntityType="Self.ROOM_STATE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ROOM_TAX" EntityType="Self.ROOM_TAX" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ROOM_TYPE" EntityType="Self.ROOM_TYPE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="STATE_BOOKING" EntityType="Self.STATE_BOOKING" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TAX" EntityType="Self.TAX" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TRAVEL_AGENT" EntityType="Self.TRAVEL_AGENT" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_API_LOGIN_LOG_TRAVEL_AGENT" Association="Self.FK_API_LOGIN_LOG_TRAVEL_AGENT">
+      <End Role="TRAVEL_AGENT" EntitySet="TRAVEL_AGENT" />
+      <End Role="API_LOGIN_LOG" EntitySet="API_LOGIN_LOG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BOOKING_RIDER" Association="Self.FK_BOOKING_RIDER">
+      <End Role="RIDER" EntitySet="RIDER" />
+      <End Role="BOOKING" EntitySet="BOOKING" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BOOKING_ROOM" Association="Self.FK_BOOKING_ROOM">
+      <End Role="ROOM" EntitySet="ROOM" />
+      <End Role="BOOKING" EntitySet="BOOKING" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BOOKING_STATE_BOOKING" Association="Self.FK_BOOKING_STATE_BOOKING">
+      <End Role="STATE_BOOKING" EntitySet="STATE_BOOKING" />
+      <End Role="BOOKING" EntitySet="BOOKING" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HOTEL_LOCATION" Association="Self.FK_HOTEL_LOCATION">
+      <End Role="LOCATION" EntitySet="LOCATION" />
+      <End Role="HOTEL" EntitySet="HOTEL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HOTEL_TRAVEL_AGENT_HOTEL" Association="Self.FK_HOTEL_TRAVEL_AGENT_HOTEL">
+      <End Role="HOTEL" EntitySet="HOTEL" />
+      <End Role="HOTEL_TRAVEL_AGENT" EntitySet="HOTEL_TRAVEL_AGENT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HOTEL_TRAVEL_AGENT_HOTEL_TRAVEL_AGENT" Association="Self.FK_HOTEL_TRAVEL_AGENT_HOTEL_TRAVEL_AGENT">
+      <End Role="TRAVEL_AGENT" EntitySet="TRAVEL_AGENT" />
+      <End Role="HOTEL_TRAVEL_AGENT" EntitySet="HOTEL_TRAVEL_AGENT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RIDER_RIDER" Association="Self.FK_RIDER_RIDER">
+      <End Role="DOCUMENT_TYPE" EntitySet="DOCUMENT_TYPE" />
+      <End Role="RIDER" EntitySet="RIDER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ROOM_HOTEL" Association="Self.FK_ROOM_HOTEL">
+      <End Role="HOTEL" EntitySet="HOTEL" />
+      <End Role="ROOM" EntitySet="ROOM" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ROOM_ROOM_STATE" Association="Self.FK_ROOM_ROOM_STATE">
+      <End Role="ROOM_STATE" EntitySet="ROOM_STATE" />
+      <End Role="ROOM" EntitySet="ROOM" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ROOM_ROOM_TYPE" Association="Self.FK_ROOM_ROOM_TYPE">
+      <End Role="ROOM_TYPE" EntitySet="ROOM_TYPE" />
+      <End Role="ROOM" EntitySet="ROOM" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ROOM_TAXE_ROOM" Association="Self.FK_ROOM_TAXE_ROOM">
+      <End Role="ROOM" EntitySet="ROOM" />
+      <End Role="ROOM_TAX" EntitySet="ROOM_TAX" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ROOM_TAXE_TAXE" Association="Self.FK_ROOM_TAXE_TAXE">
+      <End Role="TAX" EntitySet="TAX" />
+      <End Role="ROOM_TAX" EntitySet="ROOM_TAX" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

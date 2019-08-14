@@ -1,0 +1,638 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HOSTING_MANAGERModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="API_LOGIN_LOG">
+    <Key>
+      <PropertyRef Name="API_LOGIN_LOG_ID" />
+    </Key>
+    <Property Name="API_LOGIN_LOG_ID" Type="Int32" Nullable="false" />
+    <Property Name="TRAVEL_AGENT_ID" Type="Int32" />
+    <Property Name="TOKEN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DATE_BEGIN" Type="DateTime" Precision="3" />
+    <Property Name="DATE_END" Type="DateTime" Precision="3" />
+    <Property Name="STATE" Type="Boolean" />
+    <NavigationProperty Name="TRAVEL_AGENT" Relationship="Self.FK_API_LOGIN_LOG_TRAVEL_AGENT" FromRole="API_LOGIN_LOG" ToRole="TRAVEL_AGENT" />
+  </EntityType>
+  <EntityType Name="BOOKING">
+    <Key>
+      <PropertyRef Name="BOOKING_ID" />
+    </Key>
+    <Property Name="BOOKING_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ROOM_ID" Type="Int32" />
+    <Property Name="RIDER_ID" Type="Int32" />
+    <Property Name="CODE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CHEK_IN" Type="DateTime" Precision="3" />
+    <Property Name="CHEK_OUNT" Type="DateTime" Precision="3" />
+    <Property Name="NUMBER_PEOPLE" Type="Int32" />
+    <Property Name="DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="STATE_BOOKING_ID" Type="Int32" />
+    <Property Name="CREATE_DATE" Type="DateTime" Precision="3" />
+    <Property Name="UPDATE_DATE" Type="DateTime" Precision="3" />
+    <Property Name="STATE" Type="Int32" />
+    <NavigationProperty Name="RIDER" Relationship="Self.FK_BOOKING_RIDER" FromRole="BOOKING" ToRole="RIDER" />
+    <NavigationProperty Name="ROOM" Relationship="Self.FK_BOOKING_ROOM" FromRole="BOOKING" ToRole="ROOM" />
+    <NavigationProperty Name="STATE_BOOKING" Relationship="Self.FK_BOOKING_STATE_BOOKING" FromRole="BOOKING" ToRole="STATE_BOOKING" />
+  </EntityType>
+  <EntityType Name="DOCUMENT_TYPE">
+    <Key>
+      <PropertyRef Name="DOCUMENT_TYPE_ID" />
+    </Key>
+    <Property Name="DOCUMENT_TYPE_ID" Type="Int32" Nullable="false" />
+    <Property Name="DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="STATE" Type="Boolean" />
+    <NavigationProperty Name="RIDER" Relationship="Self.FK_RIDER_RIDER" FromRole="DOCUMENT_TYPE" ToRole="RIDER" />
+  </EntityType>
+  <EntityType Name="HOTEL">
+    <Key>
+      <PropertyRef Name="HOTEL_ID" />
+    </Key>
+    <Property Name="HOTEL_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LOCATION_ID" Type="Int32" Nullable="false" />
+    <Property Name="REFERENCE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CAPACITY" Type="Int32" Nullable="false" />
+    <Property Name="DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CREATE_DATE" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UPDATE_DATE" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="STATE" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="LOCATION" Relationship="Self.FK_HOTEL_LOCATION" FromRole="HOTEL" ToRole="LOCATION" />
+    <NavigationProperty Name="HOTEL_TRAVEL_AGENT" Relationship="Self.FK_HOTEL_TRAVEL_AGENT_HOTEL" FromRole="HOTEL" ToRole="HOTEL_TRAVEL_AGENT" />
+    <NavigationProperty Name="ROOM" Relationship="Self.FK_ROOM_HOTEL" FromRole="HOTEL" ToRole="ROOM" />
+  </EntityType>
+  <EntityType Name="HOTEL_TRAVEL_AGENT">
+    <Key>
+      <PropertyRef Name="HOTEL_TRAVEL_AGENT_ID" />
+    </Key>
+    <Property Name="HOTEL_TRAVEL_AGENT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HOTEL_ID" Type="Int32" />
+    <Property Name="TRAVEL_AGENT_ID" Type="Int32" />
+    <Property Name="STATE" Type="Boolean" />
+    <NavigationProperty Name="HOTEL" Relationship="Self.FK_HOTEL_TRAVEL_AGENT_HOTEL" FromRole="HOTEL_TRAVEL_AGENT" ToRole="HOTEL" />
+    <NavigationProperty Name="TRAVEL_AGENT" Relationship="Self.FK_HOTEL_TRAVEL_AGENT_HOTEL_TRAVEL_AGENT" FromRole="HOTEL_TRAVEL_AGENT" ToRole="TRAVEL_AGENT" />
+  </EntityType>
+  <EntityType Name="LOCATION">
+    <Key>
+      <PropertyRef Name="LOCATION_ID" />
+    </Key>
+    <Property Name="LOCATION_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CITY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LATITUDE" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="LONGITUDE" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="STATE" Type="Boolean" />
+    <NavigationProperty Name="HOTEL" Relationship="Self.FK_HOTEL_LOCATION" FromRole="LOCATION" ToRole="HOTEL" />
+  </EntityType>
+  <EntityType Name="RIDER">
+    <Key>
+      <PropertyRef Name="RIDER_ID" />
+    </Key>
+    <Property Name="RIDER_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DOCUMENT_TYPE_ID" Type="Int32" />
+    <Property Name="NUMBER_DOCUMENT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BIRTHDAY_DATE" Type="DateTime" Precision="3" />
+    <Property Name="GENDER" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EMAIL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PHONE" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="EMERGENCY_NAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EMERGENCY_PHONE" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="CRETE_DATE" Type="DateTime" Precision="3" />
+    <Property Name="STATE" Type="Boolean" />
+    <NavigationProperty Name="BOOKING" Relationship="Self.FK_BOOKING_RIDER" FromRole="RIDER" ToRole="BOOKING" />
+    <NavigationProperty Name="DOCUMENT_TYPE" Relationship="Self.FK_RIDER_RIDER" FromRole="RIDER" ToRole="DOCUMENT_TYPE" />
+  </EntityType>
+  <EntityType Name="ROOM">
+    <Key>
+      <PropertyRef Name="ROOM_ID" />
+    </Key>
+    <Property Name="ROOM_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HOTEL_ID" Type="Int32" />
+    <Property Name="NUMBER" Type="Int32" />
+    <Property Name="FLOOR" Type="Int32" />
+    <Property Name="CAPACITY" Type="Int32" />
+    <Property Name="ROOM_TYPE_ID" Type="Int32" />
+    <Property Name="PRICE" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CREATE_DATE" Type="DateTime" Precision="3" />
+    <Property Name="UPDATE_DATE" Type="DateTime" Precision="3" />
+    <Property Name="ROOM_STATE_ID" Type="Int32" />
+    <NavigationProperty Name="BOOKING" Relationship="Self.FK_BOOKING_ROOM" FromRole="ROOM" ToRole="BOOKING" />
+    <NavigationProperty Name="HOTEL" Relationship="Self.FK_ROOM_HOTEL" FromRole="ROOM" ToRole="HOTEL" />
+    <NavigationProperty Name="ROOM_STATE" Relationship="Self.FK_ROOM_ROOM_STATE" FromRole="ROOM" ToRole="ROOM_STATE" />
+    <NavigationProperty Name="ROOM_TYPE" Relationship="Self.FK_ROOM_ROOM_TYPE" FromRole="ROOM" ToRole="ROOM_TYPE" />
+    <NavigationProperty Name="ROOM_TAX" Relationship="Self.FK_ROOM_TAXE_ROOM" FromRole="ROOM" ToRole="ROOM_TAX" />
+  </EntityType>
+  <EntityType Name="ROOM_STATE">
+    <Key>
+      <PropertyRef Name="ROOM_STATE_ID" />
+    </Key>
+    <Property Name="ROOM_STATE_ID" Type="Int32" Nullable="false" />
+    <Property Name="DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="STATE" Type="Boolean" />
+    <NavigationProperty Name="ROOM" Relationship="Self.FK_ROOM_ROOM_STATE" FromRole="ROOM_STATE" ToRole="ROOM" />
+  </EntityType>
+  <EntityType Name="ROOM_TAX">
+    <Key>
+      <PropertyRef Name="ROOM_TAX_ID" />
+    </Key>
+    <Property Name="ROOM_TAX_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ROOM_ID" Type="Int32" Nullable="false" />
+    <Property Name="TAX_ID" Type="Int32" Nullable="false" />
+    <Property Name="STATE" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="ROOM" Relationship="Self.FK_ROOM_TAXE_ROOM" FromRole="ROOM_TAX" ToRole="ROOM" />
+    <NavigationProperty Name="TAX" Relationship="Self.FK_ROOM_TAXE_TAXE" FromRole="ROOM_TAX" ToRole="TAX" />
+  </EntityType>
+  <EntityType Name="ROOM_TYPE">
+    <Key>
+      <PropertyRef Name="ROOM_TYPE_ID" />
+    </Key>
+    <Property Name="ROOM_TYPE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="STATE" Type="Boolean" />
+    <NavigationProperty Name="ROOM" Relationship="Self.FK_ROOM_ROOM_TYPE" FromRole="ROOM_TYPE" ToRole="ROOM" />
+  </EntityType>
+  <EntityType Name="STATE_BOOKING">
+    <Key>
+      <PropertyRef Name="STATE_BOOKING_ID" />
+    </Key>
+    <Property Name="STATE_BOOKING_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DESCRIPTION" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="STATE" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="BOOKING" Relationship="Self.FK_BOOKING_STATE_BOOKING" FromRole="STATE_BOOKING" ToRole="BOOKING" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TAX">
+    <Key>
+      <PropertyRef Name="TAX_ID" />
+    </Key>
+    <Property Name="TAX_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PERCENTAGE" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="VALUE" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="CREATE_DATE" Type="DateTime" Precision="3" />
+    <Property Name="UPDATE_DATE" Type="DateTime" Precision="3" />
+    <Property Name="STATE" Type="Boolean" />
+    <NavigationProperty Name="ROOM_TAX" Relationship="Self.FK_ROOM_TAXE_TAXE" FromRole="TAX" ToRole="ROOM_TAX" />
+  </EntityType>
+  <EntityType Name="TRAVEL_AGENT">
+    <Key>
+      <PropertyRef Name="TRAVEL_AGENT_ID" />
+    </Key>
+    <Property Name="TRAVEL_AGENT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDENTIFICATION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PHONE" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PASSWORD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CREATE_DATE" Type="DateTime" Precision="3" />
+    <Property Name="STATE" Type="Boolean" />
+    <NavigationProperty Name="API_LOGIN_LOG" Relationship="Self.FK_API_LOGIN_LOG_TRAVEL_AGENT" FromRole="TRAVEL_AGENT" ToRole="API_LOGIN_LOG" />
+    <NavigationProperty Name="HOTEL_TRAVEL_AGENT" Relationship="Self.FK_HOTEL_TRAVEL_AGENT_HOTEL_TRAVEL_AGENT" FromRole="TRAVEL_AGENT" ToRole="HOTEL_TRAVEL_AGENT" />
+  </EntityType>
+  <Association Name="FK_API_LOGIN_LOG_TRAVEL_AGENT">
+    <End Role="TRAVEL_AGENT" Type="Self.TRAVEL_AGENT" Multiplicity="0..1" />
+    <End Role="API_LOGIN_LOG" Type="Self.API_LOGIN_LOG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TRAVEL_AGENT">
+        <PropertyRef Name="TRAVEL_AGENT_ID" />
+      </Principal>
+      <Dependent Role="API_LOGIN_LOG">
+        <PropertyRef Name="TRAVEL_AGENT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BOOKING_RIDER">
+    <End Role="RIDER" Type="Self.RIDER" Multiplicity="0..1" />
+    <End Role="BOOKING" Type="Self.BOOKING" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RIDER">
+        <PropertyRef Name="RIDER_ID" />
+      </Principal>
+      <Dependent Role="BOOKING">
+        <PropertyRef Name="RIDER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BOOKING_ROOM">
+    <End Role="ROOM" Type="Self.ROOM" Multiplicity="0..1" />
+    <End Role="BOOKING" Type="Self.BOOKING" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ROOM">
+        <PropertyRef Name="ROOM_ID" />
+      </Principal>
+      <Dependent Role="BOOKING">
+        <PropertyRef Name="ROOM_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BOOKING_STATE_BOOKING">
+    <End Role="STATE_BOOKING" Type="Self.STATE_BOOKING" Multiplicity="0..1" />
+    <End Role="BOOKING" Type="Self.BOOKING" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="STATE_BOOKING">
+        <PropertyRef Name="STATE_BOOKING_ID" />
+      </Principal>
+      <Dependent Role="BOOKING">
+        <PropertyRef Name="STATE_BOOKING_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RIDER_RIDER">
+    <End Role="DOCUMENT_TYPE" Type="Self.DOCUMENT_TYPE" Multiplicity="0..1" />
+    <End Role="RIDER" Type="Self.RIDER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DOCUMENT_TYPE">
+        <PropertyRef Name="DOCUMENT_TYPE_ID" />
+      </Principal>
+      <Dependent Role="RIDER">
+        <PropertyRef Name="DOCUMENT_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HOTEL_LOCATION">
+    <End Role="LOCATION" Type="Self.LOCATION" Multiplicity="1" />
+    <End Role="HOTEL" Type="Self.HOTEL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOCATION">
+        <PropertyRef Name="LOCATION_ID" />
+      </Principal>
+      <Dependent Role="HOTEL">
+        <PropertyRef Name="LOCATION_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HOTEL_TRAVEL_AGENT_HOTEL">
+    <End Role="HOTEL" Type="Self.HOTEL" Multiplicity="0..1" />
+    <End Role="HOTEL_TRAVEL_AGENT" Type="Self.HOTEL_TRAVEL_AGENT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HOTEL">
+        <PropertyRef Name="HOTEL_ID" />
+      </Principal>
+      <Dependent Role="HOTEL_TRAVEL_AGENT">
+        <PropertyRef Name="HOTEL_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ROOM_HOTEL">
+    <End Role="HOTEL" Type="Self.HOTEL" Multiplicity="0..1" />
+    <End Role="ROOM" Type="Self.ROOM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HOTEL">
+        <PropertyRef Name="HOTEL_ID" />
+      </Principal>
+      <Dependent Role="ROOM">
+        <PropertyRef Name="HOTEL_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HOTEL_TRAVEL_AGENT_HOTEL_TRAVEL_AGENT">
+    <End Role="TRAVEL_AGENT" Type="Self.TRAVEL_AGENT" Multiplicity="0..1" />
+    <End Role="HOTEL_TRAVEL_AGENT" Type="Self.HOTEL_TRAVEL_AGENT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TRAVEL_AGENT">
+        <PropertyRef Name="TRAVEL_AGENT_ID" />
+      </Principal>
+      <Dependent Role="HOTEL_TRAVEL_AGENT">
+        <PropertyRef Name="TRAVEL_AGENT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ROOM_ROOM_STATE">
+    <End Role="ROOM_STATE" Type="Self.ROOM_STATE" Multiplicity="0..1" />
+    <End Role="ROOM" Type="Self.ROOM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ROOM_STATE">
+        <PropertyRef Name="ROOM_STATE_ID" />
+      </Principal>
+      <Dependent Role="ROOM">
+        <PropertyRef Name="ROOM_STATE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ROOM_ROOM_TYPE">
+    <End Role="ROOM_TYPE" Type="Self.ROOM_TYPE" Multiplicity="0..1" />
+    <End Role="ROOM" Type="Self.ROOM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ROOM_TYPE">
+        <PropertyRef Name="ROOM_TYPE_ID" />
+      </Principal>
+      <Dependent Role="ROOM">
+        <PropertyRef Name="ROOM_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ROOM_TAXE_ROOM">
+    <End Role="ROOM" Type="Self.ROOM" Multiplicity="1" />
+    <End Role="ROOM_TAX" Type="Self.ROOM_TAX" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ROOM">
+        <PropertyRef Name="ROOM_ID" />
+      </Principal>
+      <Dependent Role="ROOM_TAX">
+        <PropertyRef Name="ROOM_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ROOM_TAXE_TAXE">
+    <End Role="TAX" Type="Self.TAX" Multiplicity="1" />
+    <End Role="ROOM_TAX" Type="Self.ROOM_TAX" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TAX">
+        <PropertyRef Name="TAX_ID" />
+      </Principal>
+      <Dependent Role="ROOM_TAX">
+        <PropertyRef Name="TAX_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HOSTING_MANAGEREntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="API_LOGIN_LOG" EntityType="Self.API_LOGIN_LOG" />
+    <EntitySet Name="BOOKING" EntityType="Self.BOOKING" />
+    <EntitySet Name="DOCUMENT_TYPE" EntityType="Self.DOCUMENT_TYPE" />
+    <EntitySet Name="HOTEL" EntityType="Self.HOTEL" />
+    <EntitySet Name="HOTEL_TRAVEL_AGENT" EntityType="Self.HOTEL_TRAVEL_AGENT" />
+    <EntitySet Name="LOCATION" EntityType="Self.LOCATION" />
+    <EntitySet Name="RIDER" EntityType="Self.RIDER" />
+    <EntitySet Name="ROOM" EntityType="Self.ROOM" />
+    <EntitySet Name="ROOM_STATE" EntityType="Self.ROOM_STATE" />
+    <EntitySet Name="ROOM_TAX" EntityType="Self.ROOM_TAX" />
+    <EntitySet Name="ROOM_TYPE" EntityType="Self.ROOM_TYPE" />
+    <EntitySet Name="STATE_BOOKING" EntityType="Self.STATE_BOOKING" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="TAX" EntityType="Self.TAX" />
+    <EntitySet Name="TRAVEL_AGENT" EntityType="Self.TRAVEL_AGENT" />
+    <AssociationSet Name="FK_API_LOGIN_LOG_TRAVEL_AGENT" Association="Self.FK_API_LOGIN_LOG_TRAVEL_AGENT">
+      <End Role="TRAVEL_AGENT" EntitySet="TRAVEL_AGENT" />
+      <End Role="API_LOGIN_LOG" EntitySet="API_LOGIN_LOG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BOOKING_RIDER" Association="Self.FK_BOOKING_RIDER">
+      <End Role="RIDER" EntitySet="RIDER" />
+      <End Role="BOOKING" EntitySet="BOOKING" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BOOKING_ROOM" Association="Self.FK_BOOKING_ROOM">
+      <End Role="ROOM" EntitySet="ROOM" />
+      <End Role="BOOKING" EntitySet="BOOKING" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BOOKING_STATE_BOOKING" Association="Self.FK_BOOKING_STATE_BOOKING">
+      <End Role="STATE_BOOKING" EntitySet="STATE_BOOKING" />
+      <End Role="BOOKING" EntitySet="BOOKING" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RIDER_RIDER" Association="Self.FK_RIDER_RIDER">
+      <End Role="DOCUMENT_TYPE" EntitySet="DOCUMENT_TYPE" />
+      <End Role="RIDER" EntitySet="RIDER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HOTEL_LOCATION" Association="Self.FK_HOTEL_LOCATION">
+      <End Role="LOCATION" EntitySet="LOCATION" />
+      <End Role="HOTEL" EntitySet="HOTEL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HOTEL_TRAVEL_AGENT_HOTEL" Association="Self.FK_HOTEL_TRAVEL_AGENT_HOTEL">
+      <End Role="HOTEL" EntitySet="HOTEL" />
+      <End Role="HOTEL_TRAVEL_AGENT" EntitySet="HOTEL_TRAVEL_AGENT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ROOM_HOTEL" Association="Self.FK_ROOM_HOTEL">
+      <End Role="HOTEL" EntitySet="HOTEL" />
+      <End Role="ROOM" EntitySet="ROOM" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HOTEL_TRAVEL_AGENT_HOTEL_TRAVEL_AGENT" Association="Self.FK_HOTEL_TRAVEL_AGENT_HOTEL_TRAVEL_AGENT">
+      <End Role="TRAVEL_AGENT" EntitySet="TRAVEL_AGENT" />
+      <End Role="HOTEL_TRAVEL_AGENT" EntitySet="HOTEL_TRAVEL_AGENT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ROOM_ROOM_STATE" Association="Self.FK_ROOM_ROOM_STATE">
+      <End Role="ROOM_STATE" EntitySet="ROOM_STATE" />
+      <End Role="ROOM" EntitySet="ROOM" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ROOM_ROOM_TYPE" Association="Self.FK_ROOM_ROOM_TYPE">
+      <End Role="ROOM_TYPE" EntitySet="ROOM_TYPE" />
+      <End Role="ROOM" EntitySet="ROOM" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ROOM_TAXE_ROOM" Association="Self.FK_ROOM_TAXE_ROOM">
+      <End Role="ROOM" EntitySet="ROOM" />
+      <End Role="ROOM_TAX" EntitySet="ROOM_TAX" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ROOM_TAXE_TAXE" Association="Self.FK_ROOM_TAXE_TAXE">
+      <End Role="TAX" EntitySet="TAX" />
+      <End Role="ROOM_TAX" EntitySet="ROOM_TAX" />
+    </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="SP_CREATE_BOOKING">
+      <Parameter Name="ROOM_ID" Mode="In" Type="Int32" />
+      <Parameter Name="RIDER_ID" Mode="In" Type="Int32" />
+      <Parameter Name="CODE" Mode="In" Type="String" />
+      <Parameter Name="CHEK_IN" Mode="In" Type="DateTime" />
+      <Parameter Name="CHEK_OUNT" Mode="In" Type="DateTime" />
+      <Parameter Name="NUMBER_PEOPLE" Mode="In" Type="Int32" />
+      <Parameter Name="DESCRIPTION" Mode="In" Type="String" />
+      <Parameter Name="STATE_BOOKING_ID" Mode="In" Type="Int32" />
+      <Parameter Name="BOOKING_ID" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_CREATE_HOTEL">
+      <Parameter Name="LOCATION_ID" Mode="In" Type="Int32" />
+      <Parameter Name="REFERENCE" Mode="In" Type="String" />
+      <Parameter Name="NAME" Mode="In" Type="String" />
+      <Parameter Name="CAPACITY" Mode="In" Type="Int32" />
+      <Parameter Name="DESCRIPTION" Mode="In" Type="String" />
+      <Parameter Name="TRAVEL_AGENT_ID" Mode="In" Type="Int32" />
+      <Parameter Name="HOTEL_ID" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_CREATE_LOGIN_API">
+      <Parameter Name="TRAVEL_AGENT_ID" Mode="In" Type="Int32" />
+      <Parameter Name="DATE_END" Mode="In" Type="DateTime" />
+      <Parameter Name="TOKEN" Mode="In" Type="String" />
+      <Parameter Name="LOGINID" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_CREATE_RIDER">
+      <Parameter Name="DOCUMENT_TYPE_ID" Mode="In" Type="Int32" />
+      <Parameter Name="NUMBER_DOCUMENT" Mode="In" Type="String" />
+      <Parameter Name="NAME" Mode="In" Type="String" />
+      <Parameter Name="BIRTHDAY_DATE" Mode="In" Type="DateTime" />
+      <Parameter Name="GENDER" Mode="In" Type="String" />
+      <Parameter Name="EMAIL" Mode="In" Type="String" />
+      <Parameter Name="PHONE" Mode="In" Type="Decimal" />
+      <Parameter Name="EMERGENCY_NAME" Mode="In" Type="String" />
+      <Parameter Name="EMERGENCY_PHONE" Mode="In" Type="Decimal" />
+      <Parameter Name="RIDER_ID" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_CREATE_ROOM">
+      <Parameter Name="HOTEL_ID" Mode="In" Type="Int32" />
+      <Parameter Name="NUMBER" Mode="In" Type="Int32" />
+      <Parameter Name="FLOOR" Mode="In" Type="Int32" />
+      <Parameter Name="ROOM_TYPE_ID" Mode="In" Type="Int32" />
+      <Parameter Name="DESCRIPTION" Mode="In" Type="String" />
+      <Parameter Name="PRICE" Mode="In" Type="Decimal" />
+      <Parameter Name="ROOM_ID" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_CREATE_TAX">
+      <Parameter Name="ROOM_ID" Mode="In" Type="Int32" />
+      <Parameter Name="NAME" Mode="In" Type="String" />
+      <Parameter Name="DESCRIPTION" Mode="In" Type="String" />
+      <Parameter Name="PERCENTAGE" Mode="In" Type="Decimal" />
+      <Parameter Name="VALUE" Mode="In" Type="Decimal" />
+      <Parameter Name="TAX_ID" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_GET_BOOKINGS" ReturnType="Collection(HOSTING_MANAGERModel.SP_GET_BOOKINGS_Result)">
+      <Parameter Name="TRAVEL_AGENT_ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_GET_HOTELES" ReturnType="Collection(HOSTING_MANAGERModel.SP_GET_HOTELES_Result)" />
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(HOSTING_MANAGERModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(HOSTING_MANAGERModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_UPDATE_HOTEL">
+      <Parameter Name="HOTEL_ID" Mode="In" Type="Int32" />
+      <Parameter Name="LOCATION_ID" Mode="In" Type="Int32" />
+      <Parameter Name="REFERENCE" Mode="In" Type="String" />
+      <Parameter Name="NAME" Mode="In" Type="String" />
+      <Parameter Name="CAPACITY" Mode="In" Type="Int32" />
+      <Parameter Name="DESCRIPTION" Mode="In" Type="String" />
+      <Parameter Name="STATE" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="SP_UPDATE_ROOM">
+      <Parameter Name="ROOM_ID" Mode="In" Type="Int32" />
+      <Parameter Name="NUMBER" Mode="In" Type="Int32" />
+      <Parameter Name="FLOOR" Mode="In" Type="Int32" />
+      <Parameter Name="ROOM_TYPE_ID" Mode="In" Type="Int32" />
+      <Parameter Name="PRICE" Mode="In" Type="Decimal" />
+      <Parameter Name="DESCRIPTION" Mode="In" Type="String" />
+      <Parameter Name="ROOM_STATE_ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_UPDATE_TAX">
+      <Parameter Name="TAX_ID" Mode="In" Type="Int32" />
+      <Parameter Name="NAME" Mode="In" Type="String" />
+      <Parameter Name="DESCRIPTION" Mode="In" Type="String" />
+      <Parameter Name="PERCENTAGE" Mode="In" Type="Decimal" />
+      <Parameter Name="VALUE" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <FunctionImport Name="SP_VALIDATE_LOGIN_API" ReturnType="Collection(HOSTING_MANAGERModel.SP_VALIDATE_LOGIN_API_Result)">
+      <Parameter Name="TRAVEL_AGENT_ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_VALIDATE_TRAVEL_AGENT" ReturnType="Collection(HOSTING_MANAGERModel.SP_VALIDATE_TRAVEL_AGENT_Result)">
+      <Parameter Name="EMAIL" Mode="In" Type="String" />
+      <Parameter Name="PASSWORD" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="SP_GET_BOOKINGS_Result">
+    <Property Type="Int32" Name="BOOKING_ID" Nullable="false" />
+    <Property Type="Int32" Name="ROOM_ID" Nullable="true" />
+    <Property Type="Int32" Name="RIDER_ID" Nullable="true" />
+    <Property Type="String" Name="CODE" Nullable="true" />
+    <Property Type="DateTime" Name="CHEK_IN" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="CHEK_OUNT" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="NUMBER_PEOPLE" Nullable="true" />
+    <Property Type="String" Name="DESCRIPTION" Nullable="true" />
+    <Property Type="Int32" Name="STATE_BOOKING_ID" Nullable="true" />
+    <Property Type="DateTime" Name="CREATE_DATE" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="UPDATE_DATE" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="STATE" Nullable="true" />
+    <Property Type="Int32" Name="ROOM_ID1" Nullable="false" />
+    <Property Type="Int32" Name="HOTEL_ID" Nullable="true" />
+    <Property Type="Int32" Name="NUMBER" Nullable="true" />
+    <Property Type="Int32" Name="FLOOR" Nullable="true" />
+    <Property Type="Int32" Name="CAPACITY" Nullable="true" />
+    <Property Type="Int32" Name="ROOM_TYPE_ID" Nullable="true" />
+    <Property Type="Decimal" Name="PRICE" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="String" Name="DESCRIPTION1" Nullable="true" />
+    <Property Type="DateTime" Name="CREATE_DATE1" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="UPDATE_DATE1" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="ROOM_STATE_ID" Nullable="true" />
+    <Property Type="Int32" Name="HOTEL_TRAVEL_AGENT_ID" Nullable="false" />
+    <Property Type="Int32" Name="HOTEL_ID1" Nullable="true" />
+    <Property Type="Int32" Name="TRAVEL_AGENT_ID" Nullable="true" />
+    <Property Type="Boolean" Name="STATE1" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SP_GET_HOTELES_Result">
+    <Property Type="Int32" Name="HOTEL_ID" Nullable="false" />
+    <Property Type="Int32" Name="LOCATION_ID" Nullable="false" />
+    <Property Type="String" Name="REFERENCE" Nullable="false" />
+    <Property Type="String" Name="NAME" Nullable="false" />
+    <Property Type="Int32" Name="CAPACITY" Nullable="false" />
+    <Property Type="String" Name="DESCRIPTION" Nullable="true" />
+    <Property Type="DateTime" Name="CREATE_DATE" Nullable="false" Precision="23" />
+    <Property Type="DateTime" Name="UPDATE_DATE" Nullable="false" Precision="23" />
+    <Property Type="Boolean" Name="STATE" Nullable="false" />
+    <Property Type="Int32" Name="ROOM_ID" Nullable="false" />
+    <Property Type="Int32" Name="HOTEL_ID1" Nullable="true" />
+    <Property Type="Int32" Name="NUMBER" Nullable="true" />
+    <Property Type="Int32" Name="FLOOR" Nullable="true" />
+    <Property Type="Int32" Name="CAPACITY1" Nullable="true" />
+    <Property Type="Int32" Name="ROOM_TYPE_ID" Nullable="true" />
+    <Property Type="Decimal" Name="PRICE" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="String" Name="DESCRIPTION1" Nullable="true" />
+    <Property Type="DateTime" Name="CREATE_DATE1" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="UPDATE_DATE1" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="ROOM_STATE_ID" Nullable="true" />
+    <Property Type="Int32" Name="BOOKING_ID" Nullable="false" />
+    <Property Type="Int32" Name="ROOM_ID1" Nullable="true" />
+    <Property Type="Int32" Name="RIDER_ID" Nullable="true" />
+    <Property Type="String" Name="CODE" Nullable="true" />
+    <Property Type="DateTime" Name="CHEK_IN" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="CHEK_OUNT" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="NUMBER_PEOPLE" Nullable="true" />
+    <Property Type="String" Name="DESCRIPTION2" Nullable="true" />
+    <Property Type="Int32" Name="STATE_BOOKING_ID" Nullable="true" />
+    <Property Type="DateTime" Name="CREATE_DATE2" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="UPDATE_DATE2" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="STATE1" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="SP_VALIDATE_LOGIN_API_Result">
+    <Property Type="Int32" Name="API_LOGIN_LOG_ID" Nullable="false" />
+    <Property Type="Int32" Name="TRAVEL_AGENT_ID" Nullable="true" />
+    <Property Type="String" Name="TOKEN" Nullable="true" />
+    <Property Type="DateTime" Name="DATE_BEGIN" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="DATE_END" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="STATE" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SP_VALIDATE_TRAVEL_AGENT_Result">
+    <Property Type="Int32" Name="TRAVEL_AGENT_ID" Nullable="false" />
+    <Property Type="String" Name="IDENTIFICATION" Nullable="true" />
+    <Property Type="String" Name="NAME" Nullable="true" />
+    <Property Type="Decimal" Name="PHONE" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="String" Name="EMAIL" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PASSWORD" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="CREATE_DATE" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="STATE" Nullable="true" />
+  </ComplexType>
+</Schema>

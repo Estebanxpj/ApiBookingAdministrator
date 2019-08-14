@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2048
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApibookingAdministrator", "ApibookingAdministrator\ApibookingAdministrator.csproj", "{54B12469-B2FE-4E31-B93E-64575CE2480C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{54B12469-B2FE-4E31-B93E-64575CE2480C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54B12469-B2FE-4E31-B93E-64575CE2480C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54B12469-B2FE-4E31-B93E-64575CE2480C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54B12469-B2FE-4E31-B93E-64575CE2480C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {24BF5F29-CCF5-4C11-8AAF-5ECB739D6172}
+	EndGlobalSection
+EndGlobal
