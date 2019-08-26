@@ -189,93 +189,88 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Classes\Repository.cs" />
     <Compile Include="Classes\Utilities.cs" />
     <Compile Include="Controllers\BookingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HotelController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\TravelAgentController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Filters\BasicValidateTokenFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\API_LOGIN_LOG.cs">
-      <DependentUpon>BookingModel.tt</DependentUpon>
+      <DependentUpon>HOSTING_MANAGER_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\BOOKING.cs">
-      <DependentUpon>BookingModel.tt</DependentUpon>
+      <DependentUpon>HOSTING_MANAGER_Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\BookingModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BookingModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\BookingModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BookingModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\BookingModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BookingModel.edmx</DependentUpon>
+    <Compile Include="Models\database_firewall_rules.cs">
+      <DependentUpon>HOSTING_MANAGER_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DOCUMENT_TYPE.cs">
-      <DependentUpon>BookingModel.tt</DependentUpon>
+      <DependentUpon>HOSTING_MANAGER_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HOSTING_MANAGER_Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HOSTING_MANAGER_Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HOSTING_MANAGER_Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HOSTING_MANAGER_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HOSTING_MANAGER_Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HOSTING_MANAGER_Model.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\HOTEL.cs">
-      <DependentUpon>BookingModel.tt</DependentUpon>
+      <DependentUpon>HOSTING_MANAGER_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\HOTEL_TRAVEL_AGENT.cs">
-      <DependentUpon>BookingModel.tt</DependentUpon>
+      <DependentUpon>HOSTING_MANAGER_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LOCATION.cs">
-      <DependentUpon>BookingModel.tt</DependentUpon>
+      <DependentUpon>HOSTING_MANAGER_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\RIDER.cs">
-      <DependentUpon>BookingModel.tt</DependentUpon>
+      <DependentUpon>HOSTING_MANAGER_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ROOM.cs">
-      <DependentUpon>BookingModel.tt</DependentUpon>
+      <DependentUpon>HOSTING_MANAGER_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ROOM_STATE.cs">
-      <DependentUpon>BookingModel.tt</DependentUpon>
+      <DependentUpon>HOSTING_MANAGER_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ROOM_TAX.cs">
-      <DependentUpon>BookingModel.tt</DependentUpon>
+      <DependentUpon>HOSTING_MANAGER_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ROOM_TYPE.cs">
-      <DependentUpon>BookingModel.tt</DependentUpon>
+      <DependentUpon>HOSTING_MANAGER_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SP_GET_BOOKINGS_Result.cs">
-      <DependentUpon>BookingModel.tt</DependentUpon>
+      <DependentUpon>HOSTING_MANAGER_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SP_GET_HOTELES_Result.cs">
-      <DependentUpon>BookingModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>BookingModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sp_helpdiagrams_Result.cs">
-      <DependentUpon>BookingModel.tt</DependentUpon>
+      <DependentUpon>HOSTING_MANAGER_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SP_VALIDATE_LOGIN_API_Result.cs">
-      <DependentUpon>BookingModel.tt</DependentUpon>
+      <DependentUpon>HOSTING_MANAGER_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SP_VALIDATE_TRAVEL_AGENT_Result.cs">
-      <DependentUpon>BookingModel.tt</DependentUpon>
+      <DependentUpon>HOSTING_MANAGER_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\STATE_BOOKING.cs">
-      <DependentUpon>BookingModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sysdiagrams.cs">
-      <DependentUpon>BookingModel.tt</DependentUpon>
+      <DependentUpon>HOSTING_MANAGER_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TAX.cs">
-      <DependentUpon>BookingModel.tt</DependentUpon>
+      <DependentUpon>HOSTING_MANAGER_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TRAVEL_AGENT.cs">
-      <DependentUpon>BookingModel.tt</DependentUpon>
+      <DependentUpon>HOSTING_MANAGER_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Object\Request.cs" />
     <Compile Include="Object\RequestAuthentication.cs" />
@@ -292,15 +287,15 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Models\BookingModel.Context.tt">
+    <Content Include="Models\HOSTING_MANAGER_Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BookingModel.edmx</DependentUpon>
-      <LastGenOutput>BookingModel.Context.cs</LastGenOutput>
+      <DependentUpon>HOSTING_MANAGER_Model.edmx</DependentUpon>
+      <LastGenOutput>HOSTING_MANAGER_Model.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\BookingModel.tt">
+    <Content Include="Models\HOSTING_MANAGER_Model.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BookingModel.edmx</DependentUpon>
-      <LastGenOutput>BookingModel.cs</LastGenOutput>
+      <DependentUpon>HOSTING_MANAGER_Model.edmx</DependentUpon>
+      <LastGenOutput>HOSTING_MANAGER_Model.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -326,20 +321,23 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <EntityDeploy Include="Models\BookingModel.edmx">
+    <EntityDeploy Include="Models\HOSTING_MANAGER_Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>BookingModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>HOSTING_MANAGER_Model.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\BookingModel.edmx.diagram">
-      <DependentUpon>BookingModel.edmx</DependentUpon>
+    <Content Include="Models\HOSTING_MANAGER_Model.edmx.diagram">
+      <DependentUpon>HOSTING_MANAGER_Model.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\ApibookingAdministrator20190815041434 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>

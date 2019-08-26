@@ -55,7 +55,7 @@ namespace ApibookingAdministrator.Controllers
 
                                     model.SP_CREATE_LOGIN_API(user.TRAVEL_AGENT_ID, Utilities.SumDate(), token, @sessionId);
 
-                                    if (!string.IsNullOrEmpty(@sessionId.Value.ToString()))
+                                    if (@sessionId != null && @sessionId.Value != null)
                                     {
                                         idSession = Convert.ToInt32(@sessionId.Value.ToString());
                                         idUser = user.TRAVEL_AGENT_ID;

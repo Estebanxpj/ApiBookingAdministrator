@@ -1,4 +1,5 @@
 ﻿using ApibookingAdministrator.Classes;
+using ApibookingAdministrator.Filters;
 using ApibookingAdministrator.Models;
 using ApibookingAdministrator.Object;
 using System;
@@ -9,6 +10,7 @@ using System.Web.Http.Description;
 
 namespace ApibookingAdministrator.Controllers
 {
+    [BasicValidateTokenFilter]
     public class TravelAgentController : ApiController
     {
         private Response response;

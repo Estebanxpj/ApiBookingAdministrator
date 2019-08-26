@@ -1,4 +1,5 @@
-﻿using ApibookingAdministrator.Models;
+﻿using ApibookingAdministrator.Filters;
+using ApibookingAdministrator.Models;
 using ApibookingAdministrator.Object;
 using Newtonsoft.Json;
 using System;
@@ -9,6 +10,7 @@ using System.Web.Http.Description;
 
 namespace ApibookingAdministrator.Controllers
 {
+    [BasicValidateTokenFilter]
     public class HotelController : ApiController
     {
         private Response response;

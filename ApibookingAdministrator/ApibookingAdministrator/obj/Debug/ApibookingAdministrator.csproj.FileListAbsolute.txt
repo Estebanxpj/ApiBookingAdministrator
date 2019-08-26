@@ -1,5 +1,3 @@
-C:\Users\1Cero1SAS\source\repos\ApibookingAdministrator\ApibookingAdministrator\obj\Debug\ApibookingAdministrator.csprojAssemblyReference.cache
-C:\Users\1Cero1SAS\source\repos\ApibookingAdministrator\ApibookingAdministrator\obj\Debug\ApibookingAdministrator.csproj.CoreCompileInputs.cache
 C:\Users\1Cero1SAS\source\repos\ApibookingAdministrator\ApibookingAdministrator\bin\ApplicationInsights.config
 C:\Users\1Cero1SAS\source\repos\ApibookingAdministrator\ApibookingAdministrator\bin\ApibookingAdministrator.dll.config
 C:\Users\1Cero1SAS\source\repos\ApibookingAdministrator\ApibookingAdministrator\bin\ApibookingAdministrator.dll
@@ -106,6 +104,8 @@ C:\Users\1Cero1SAS\source\repos\ApibookingAdministrator\ApibookingAdministrator\
 C:\Users\1Cero1SAS\source\repos\ApibookingAdministrator\ApibookingAdministrator\bin\es\System.Web.WebPages.resources.dll
 C:\Users\1Cero1SAS\source\repos\ApibookingAdministrator\ApibookingAdministrator\bin\es\System.Web.WebPages.Deployment.resources.dll
 C:\Users\1Cero1SAS\source\repos\ApibookingAdministrator\ApibookingAdministrator\bin\es\System.Web.WebPages.Razor.resources.dll
+C:\Users\1Cero1SAS\source\repos\ApibookingAdministrator\ApibookingAdministrator\obj\Debug\ApibookingAdministrator.csproj.CoreCompileInputs.cache
 C:\Users\1Cero1SAS\source\repos\ApibookingAdministrator\ApibookingAdministrator\obj\Debug\ApibookingAdministrator.csproj.CopyComplete
 C:\Users\1Cero1SAS\source\repos\ApibookingAdministrator\ApibookingAdministrator\obj\Debug\ApibookingAdministrator.dll
 C:\Users\1Cero1SAS\source\repos\ApibookingAdministrator\ApibookingAdministrator\obj\Debug\ApibookingAdministrator.pdb
+C:\Users\1Cero1SAS\source\repos\ApibookingAdministrator\ApibookingAdministrator\obj\Debug\ApibookingAdministrator.csprojAssemblyReference.cache
